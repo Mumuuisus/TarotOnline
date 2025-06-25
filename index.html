@@ -65,21 +65,23 @@
   <script type="module" src="script.js"></script>
 
   <script>
-    // ป้องกันการกด F12, Ctrl+Shift+I, Ctrl+U
-    document.addEventListener('keydown', function (e) {
-      if (
-        e.key === 'F12' ||
-        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
-        (e.ctrlKey && e.key.toLowerCase() === 'u')
-      ) {
-        e.preventDefault();
-      }
-    });
-
-    // ปิดคลิกขวา
-    document.addEventListener('contextmenu', function (e) {
+  // ป้องกันกด F12, Ctrl+Shift+I, Ctrl+U
+  document.addEventListener('keydown', function(e) {
+    if (
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
+      (e.ctrlKey && e.key.toLowerCase() === 'u')
+    ) {
       e.preventDefault();
-    });
-  </script>
+      alert('This action is disabled.');
+    }
+  });
+
+  // ปิดคลิกขวา
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert('Right-click is disabled.');
+  });
+</script>
 </body>
 </html>
